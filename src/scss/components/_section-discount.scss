@@ -1,0 +1,52 @@
+.section-discount {
+	margin-top: -46px;
+	padding-bottom: 50px;
+
+	&__content-box {
+		@include background-image("section-discount/bg");
+		position: relative;
+		height: 600px;
+		padding-top: 270px;
+		padding-left: 8.3%;
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		&::before {
+			position: absolute;
+			z-index: -1;
+			top: 77px;
+			left: 105px;
+			width: 286px;
+			height: 180px;
+			background-image: url("../images/section-discount/balloons.svg");
+			background-size: contain;
+			background-position: bottom center;
+			background-repeat: no-repeat;
+			content: "";
+		}
+	}
+
+	&__content {
+		max-width: 386px;
+	}
+
+	&__title {
+	}
+
+	&__time {
+		margin-bottom: 20px;
+		font-size: 28px;
+		line-height: 1.4;
+		font-weight: 500;
+	}
+
+	&__text {
+		margin-bottom: 30px;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 300px;
+	}
+}

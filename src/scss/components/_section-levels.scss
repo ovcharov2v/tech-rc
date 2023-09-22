@@ -1,0 +1,109 @@
+.section-levels {
+	padding-top: 57px;
+	padding-bottom: 50px;
+
+	&__title {
+		margin-bottom: 25px;
+		text-align: center;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template: auto / repeat(3, 1fr);
+		grid-gap: 15px 30px;
+		margin-bottom: 10px;
+	}
+
+	&__card {
+		position: relative;
+		z-index: 0;
+		padding: 40px;
+		text-align: center;
+
+		&::before {
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+			background-color: #F8EEE6;
+			mask-size: 100% 100%;
+			mask-position: center;
+			mask-repeat: no-repeat;
+			content: "";
+		}
+
+		&:nth-child(3n-2) {
+			&::before {
+				mask-image: url("data:image/svg+xml,%3Csvg width='420' height='469' viewBox='0 0 420 469' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cmask id='mask0_68_516' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='420' height='469'%3E%3Cpath d='M0 39.348C0 25.6078 0 18.7377 2.69612 13.5406C5.06691 8.97062 8.8444 5.28413 13.4708 3.02548C18.7321 0.456881 25.6002 0.624395 39.3363 0.959422L373.362 9.10639C386.243 9.42057 392.684 9.57766 397.633 12.1646C401.99 14.4415 405.542 18.001 407.809 22.3621C410.386 27.3168 410.529 33.7578 410.816 46.6399L419.146 420.668C419.445 434.088 419.595 440.797 417.099 445.984C414.903 450.547 411.321 454.298 406.864 456.701C401.798 459.433 395.089 459.593 381.67 459.913L39.314 468.064C25.5849 468.391 18.7203 468.554 13.4621 465.984C8.83827 463.725 5.06331 460.039 2.6942 455.47C0 450.274 0 443.408 0 429.675V39.348Z' fill='%23F8EEE6'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_68_516)'%3E%3Cpath d='M0 39.348C0 25.6078 0 18.7377 2.69612 13.5406C5.06691 8.97062 8.8444 5.28413 13.4708 3.02548C18.7321 0.456881 25.6002 0.624395 39.3363 0.959422L373.362 9.10639C386.243 9.42057 392.684 9.57766 397.633 12.1646C401.99 14.4415 405.542 18.001 407.809 22.3621C410.386 27.3168 410.529 33.7578 410.816 46.6399L419.146 420.668C419.445 434.088 419.595 440.797 417.099 445.984C414.903 450.547 411.321 454.298 406.864 456.701C401.798 459.433 395.089 459.593 381.67 459.913L39.314 468.064C25.5849 468.391 18.7203 468.554 13.4621 465.984C8.83827 463.725 5.06331 460.039 2.6942 455.47C0 450.274 0 443.408 0 429.675V39.348Z' fill='%23F8EEE6'/%3E%3C/g%3E%3C/svg%3E%0A");
+			}
+		}
+
+		&:nth-child(3n-1) {
+			&::before {
+				width: 104%;
+				height: 96%;
+				mask-image: url("data:image/svg+xml,%3Csvg width='440' height='449' viewBox='0 0 440 449' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M0.874276 39.255C0.568918 25.5444 0.416238 18.6891 2.98908 13.4389C5.25153 8.82204 8.93679 5.05379 13.5021 2.68911C18.6937 0 25.5507 0 39.2648 0H400.735C414.449 0 421.306 0 426.498 2.68911C431.063 5.05379 434.748 8.82204 437.011 13.4389C439.584 18.6891 439.431 25.5444 439.126 39.255L430.836 411.455C430.543 424.625 430.396 431.21 427.74 436.228C425.403 440.643 421.747 444.218 417.281 446.456C412.206 449 405.619 449 392.446 449H47.5543C34.3809 449 27.7943 449 22.7188 446.456C18.2529 444.218 14.5966 440.643 12.2597 436.228C9.60379 431.21 9.45713 424.625 9.16381 411.455L0.874276 39.255Z' fill='%23F8EEE6'/%3E%3C/svg%3E%0A");
+			}
+		}
+
+		&:nth-child(3n) {
+			&::before {
+				mask-image: url("data:image/svg+xml,%3Csvg width='420' height='469' viewBox='0 0 420 469' fill='none' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Cpath d='M420 39.348C420 25.6078 420 18.7377 417.304 13.5406C414.933 8.97062 411.156 5.28413 406.529 3.02548C401.268 0.456881 394.4 0.624395 380.664 0.959422L46.6381 9.10639C33.7567 9.42057 27.3159 9.57766 22.3667 12.1646C18.0105 14.4415 14.4584 18.001 12.1907 22.3621C9.61432 27.3168 9.47089 33.7578 9.18396 46.6399L0.853699 420.668C0.55484 434.088 0.405396 440.797 2.90137 445.984C5.09689 450.547 8.67917 454.298 13.1357 456.701C18.2019 459.433 24.9113 459.593 38.3302 459.913L380.686 468.064C394.415 468.391 401.28 468.554 406.538 465.984C411.162 463.725 414.937 460.039 417.306 455.47C420 450.274 420 443.408 420 429.675V39.348Z' fill='%23F8EEE6'/%3E%3C/svg%3E%0A");
+			}
+		}
+	}
+
+	&__card-age {
+		margin-bottom: 5px;
+		font-family: $font-secondary;
+		font-size: 56px;
+		line-height: 1.1;
+	}
+
+	&__card-title {
+		margin-bottom: 20px;
+		font-family: $font-secondary;
+		font-size: 28px;
+		line-height: 1;
+		color: $color-orange;
+	}
+
+	&__card-icon {
+		max-width: 100%;
+		height: 60px;
+		margin-bottom: 26px;
+	}
+
+	&__card-time {
+		margin-bottom: 4px;
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	&__card-price {
+		margin-bottom: 25px;
+		font-family: $font-secondary;
+		font-size: 56px;
+		line-height: 1.1;
+	}
+
+	&__card-button {
+		width: 100%;
+		max-width: calc(100% - 40px);
+	}
+
+	&__text {
+		font-size: 28px;
+		line-height: 1.4;
+		font-weight: 600;
+		text-align: center;
+	}
+
+	&__text-orange {
+		text-transform: uppercase;
+		color: $color-orange;
+	}
+}

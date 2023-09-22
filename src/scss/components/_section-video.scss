@@ -1,0 +1,13 @@
+.section-video {
+	padding-top: 11px;
+	padding-bottom: 30px;
+
+	&__grid {
+		display: grid;
+		grid-template: auto / repeat(2, 1fr);
+		grid-column-gap: 30px;
+	}
+
+	&__link {
+	}
+}

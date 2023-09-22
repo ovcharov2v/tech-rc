@@ -1,0 +1,62 @@
+.section-for-children {
+	position: relative;
+	padding-top: 17px;
+	padding-bottom: 50px;
+
+	&__content-box {
+		@include background-image("section-for-children/bg");
+		position: relative;
+		height: 600px;
+		padding-top: 280px;
+		padding-right: 6.9%;
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	&__img-box {
+		position: absolute;
+		top: -14px;
+		right: 0;
+	}
+
+	&__img1 {
+		position: absolute;
+		top: 25px;
+		left: 0;
+		max-width: 100%;
+	}
+
+	&__img2 {
+		max-width: 100%;
+	}
+
+	&__img3 {
+		max-width: 100%;
+	}
+
+	&__content {
+		max-width: 330px;
+		margin-left: auto;
+	}
+
+	&__title {
+	}
+
+	&__age{
+		font-family: $font-secondary;
+		margin-bottom: 14px;
+		font-size: 28px;
+		line-height: 1.4;
+		color: $color-orange;
+	}
+
+	&__text {
+		margin-bottom: 30px;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 300px;
+	}
+}

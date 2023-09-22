@@ -1,0 +1,106 @@
+.section-hero {
+	@include background-image("section-hero/bg");
+	position: relative;
+	z-index: 0;
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	color: $color-white;
+
+	&__container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-height: 100vh;
+		padding-top: 70px;
+		padding-bottom: 170px;
+
+		&::before {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			right: 100%;
+			width: 100vw;
+			height: 100%;
+			background-color: #1F0D09;
+			content: "";
+		}
+
+		&::after {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(90deg, #1F0D09 0%, rgba(31, 13, 9, 0.70) 26.04%, rgba(31, 13, 9, 0.20) 50%, rgba(31, 13, 9, 0.00) 100%);
+			content: "";
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		max-width: 540px;
+		margin-bottom: 5px;
+	}
+
+	&__text {
+		max-width: 400px;
+		margin-bottom: 18px;
+	}
+
+	&__button {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	&__address-box {
+		position: absolute;
+		z-index: 0;
+		left: 0;
+		bottom: 0;
+		display: flex;
+		width: 100%;
+		height: 150px;
+		padding-left: 43px;
+		padding-top: 18px;
+		line-height: 1;
+
+		&::before {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: -20px;
+			width: calc(100% + 20px);
+			height: 100%;
+			background-image: url("../images/section-hero/bottom-bg.svg");
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			content: "";
+		}
+	}
+
+	&__address-icon {
+		flex-shrink: 0;
+		width: 60px;
+		height: 64px;
+	}
+
+	&__address-top {
+		margin-bottom: 10px;
+		color: #FDCABE;
+	}
+
+	&__address-center {
+		margin-bottom: 4px;
+		font-weight: 600;
+		color: $color-orange;
+	}
+
+	&__address {
+		font-weight: 600;
+		color: $color-black;
+	}
+}

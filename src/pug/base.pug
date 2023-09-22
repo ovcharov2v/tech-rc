@@ -286,6 +286,7 @@ html(class=html.classList)&attributes(html.attrs)
 		+footer()
 		include ../images/sprite/sprite.svg
 		block scripts
+			script(src='//api-maps.yandex.ru/2.1/?load=package.standard,package.geoObjects&lang=ru-RU', type='text/javascript')
 			script(src!=`${baseDir}js/vendor.js?v=${Date.now()}`)
 			script(src!=`${baseDir}js/main.js?v=${Date.now()}`)
 		block body-end

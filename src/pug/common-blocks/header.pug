@@ -1,2 +1,23 @@
 mixin header()
 	header.header
+		.container
+			.header__content-box
+				img.header__logo(src="images/logo.svg", alt="Tech RC")
+				nav
+					ul.header__nav-list
+						li.header__nav-elem
+							a.header__nav-link(href="#") О нас
+						li.header__nav-elem
+							a.header__nav-link(href="#") Цены
+						li.header__nav-elem
+							a.header__nav-link(href="#") Дни рождения
+						li.header__nav-elem
+							a.header__nav-link(href="#") Отзывы
+						li.header__nav-elem
+							a.header__nav-link(href="#") Контакты
+				a.header__phone(href="tel:+79311066328") +7 931 106-63-28
+				a.header__vk(href="https://vk.com", target="_blank")
+					+svg("vk")(class="header__vk-icon")
+				button.button.button--with-smile
+					|Скидка 30%
+					+picture("common/smile", "png")(class="button__smile")

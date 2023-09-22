@@ -4,7 +4,247 @@ prepend vars
 	//-
 
 append vars
-	- title = "Main page"
+	- title = "Tech RC"
 
 block content
-	h1 Tech RC
+	// Section Hero
+	section.section-hero
+		.container.section-hero__container
+			.section-hero__content
+				h1.heading.section-hero__title Диорама для маленьких строителей
+				p.section-hero__text Добро пожаловать в удивительный мир стройки и сельского хозяйства!  Мы представляем вам диораму, которая откроет вам безграничные возможности развлечения и обучения
+				button.button.button--orange.button--orange-v1.section-hero__button Записаться онлайн
+				.section-hero__address-box
+					img.section-hero__address-icon(src="images/section-hero/map-marker.svg")
+					.section-hero__address-wrap
+						p.section-hero__address-top Мы находимся по адресу
+						p.section-hero__address-center ТРЦ "Мадагаскар",4 этаж
+						address.section-hero__address ул. Ленинского Комсомола, 21А
+
+	// Section Quote
+	.section-quote
+		.section-quote__container.container
+			blockquote.section-quote__content «Мы стремились запечатлеть каждую деталь, чтобы вы могли увидеть реализм и красоту наших моделей строительной техники и сельских сцен. Интерактивные элементы позволят вам вжиться в роль маленьких строителей и фермеров, меняя диораму под собственное видение»
+			+picture("section-quote/img", "section-quote__img")
+
+	// Section Video
+	.section-video.container
+		.section-video__grid
+			a.section-video__link.video.video--mask1(href="https://youtube.com", target="_blank", rel="noreferrer nofollow")
+				+picture("section-video/cover1", "jpg")(class="video__cover")
+				.video__play
+					+svg("play")(class="video__play-icon")
+			a.section-video__link.video.video--mask2(href="https://youtube.com", target="_blank", rel="noreferrer nofollow")
+				+picture("section-video/cover2", "jpg")(class="video__cover")
+				.video__play
+					+svg("play")(class="video__play-icon")
+
+	// Section About
+	section.section-about.container
+		.section-about__content
+			.section-about__text-box
+				h2.heading.section-about__title Что такое наша диорама?
+				p.section-about__text Это масштабная модель, созданная с любовью к деталям, чтобы максимально точно воссоздать атмосферу стройки и сельского хозяйства. Каждая машина и каждое здание проработаны с удивительной точностью, чтобы создать реалистичный мир, в котором можно провести много часов развлечений.
+				p.section-about__text Ваши дети будут в восторге от возможности управлять разнообразной строительной техникой: от мощных тракторов до грозных экскаваторов и высоких кранов. Это не просто игрушка, это настоящая возможность погрузиться в мир строительства и узнать, как работают настоящие машины.
+			.section-about__image-box
+				+picture("section-about/img", "section-about__image")
+		.section-about__grid
+			// Card
+			article.section-about__card
+				img.section-about__card-icon(src="images/section-about/icon1.svg", alt)
+				h3.section-about__card-title Обучение и развитие
+				p.section-about__card-text Наша диорама обеспечивает игровое обучение, помогая детям развивать логическое мышление, координацию, и учиться решать задачи
+			// Card
+			article.section-about__card
+				img.section-about__card-icon(src="images/section-about/icon2.svg", alt)
+				h3.section-about__card-title Реалистичный опыт
+				p.section-about__card-text Дети получают реалистичный опыт управления строительной техникой и создания своих собственных мирных сценариев
+			// Card
+			article.section-about__card
+				img.section-about__card-icon(src="images/section-about/icon3.svg", alt)
+				h3.section-about__card-title Соц. взаимодействие
+				p.section-about__card-text Игра с друзьями и семьёй способствует развитию социальных навыков и совместной активности
+
+	// Section For children
+	section.section-for-children.container
+		.section-for-children__content-box
+			+picture("section-for-children/img1")(class="section-for-children__img1")
+			.section-for-children__img-box
+				+picture("section-for-children/img2")(class="section-for-children__img2")
+				+picture("section-for-children/img3")(class="section-for-children__img3")
+			.section-for-children__content
+				h2.heading.section-for-children__title Для детей
+				p.section-for-children__age от 3 до 12 лет
+				p.section-for-children__text Диорама станет площадкой для творчества, где дети могут создавать свои собственные миры и рассказы
+				button.button.button--orange.button--orange-v1.section-for-children__button Записаться онлайн
+
+	// Section Levels
+	section.section-levels.container
+		h2.heading.section-levels__title Цены и уровни сложности
+		.section-levels__grid
+			// Card
+			article.section-levels__card
+				p.section-levels__card-age 3+
+				h3.section-levels__card-title Простой
+				img.section-levels__card-icon(src="images/section-levels/icon1.svg", alt)
+				p.section-levels__card-time 1 игра = 15 мин
+				p.section-levels__card-price 200 ₽
+				button.section-levels__card-button.button.button--orange.button--orange-v1 Записаться онлайн
+			// Card
+			article.section-levels__card
+				p.section-levels__card-age 6+
+				h3.section-levels__card-title Средний
+				img.section-levels__card-icon(src="images/section-levels/icon2.svg", alt)
+				p.section-levels__card-time 1 игра = 15 мин
+				p.section-levels__card-price 300 ₽
+				button.section-levels__card-button.button.button--orange.button--orange-v2 Записаться онлайн
+			// Card
+			article.section-levels__card
+				p.section-levels__card-age 9+
+				h3.section-levels__card-title Сложный
+				img.section-levels__card-icon(src="images/section-levels/icon3.svg", alt)
+				p.section-levels__card-time 1 игра = 15 мин
+				p.section-levels__card-price 400 ₽
+				button.section-levels__card-button.button.button--orange.button--orange-v3 Записаться онлайн
+		p.section-levels__text Каждая 5-я игра
+			|
+			|
+			span.section-levels__text-orange бесплатно
+
+	// Section Slider
+	.section-slider.container
+		.slider.slider--images
+			.swiper.slider__elem
+				.swiper-wrapper
+					- var n = 1
+					while n < 6
+						// Slide
+						.swiper-slide.slider__slide
+							+picture("section-slider/slide"+n, "jpg")(class="slider__slide-img")
+						- n++
+			.slider__pagination
+
+	// Section Discount
+	section.section-discount.container
+		.section-discount__content-box
+			.section-discount__content
+				h2.heading.color-orange.section-discount__title Скидка 30%
+				p.section-discount__time в день рождения
+				p.section-discount__text Проведите незабываемое время вместе, управляйте строительной техникой и погрузитесь в мир креативных игр и обучения
+				button.button.button--orange.button--orange-v1.section-discount__button Записаться онлайн
+
+	// Section Review
+	.section-review.container
+		h2.heading.section-review__title Отзывы о нашей диораме
+		.slider.slider--review
+			.swiper.slider__elem
+				.swiper-wrapper
+					// Slide
+					.swiper-slide.slider__slide
+						p.slider__slide-name Дмитрий Козлов
+						time.slider__slide-date 15 января 2023
+						p.slider__slide-text Отличное место для семейных выходных. Моя семья наслаждалась каждой минутой, играя с вашей диорамой.
+					// Slide
+					.swiper-slide.slider__slide
+						p.slider__slide-name Анна Иванова
+						time.slider__slide-date 15 января 2023
+						p.slider__slide-text Моя дочь Алиса просто обожает эту диораму! Спасибо вам за создание такой удивительной игровой среды.
+					// Slide
+					.swiper-slide.slider__slide
+						p.slider__slide-name Александр Петров
+						time.slider__slide-date 11 января 2023
+						p.slider__slide-text Мы с женой привели своих детей на день рождения. Дети были в восторге, а мы тоже наслаждались этим удивительным миром!
+					// Slide
+					.swiper-slide.slider__slide
+						p.slider__slide-name Екатерина Смирнова
+						time.slider__slide-date 11 января 2023
+						p.slider__slide-text Мы посетили вашу диораму на выходных. Мои дети, Макс и Аня, были в восторге. Они так много узнали и, главное, хорошо провели время!
+					// Slide
+					.swiper-slide.slider__slide
+						p.slider__slide-name Ольга Морозова
+						time.slider__slide-date 15 января 2023
+						p.slider__slide-text Я привела своего внука, Максима, и он просто не мог оторваться от диорамы. Это отличное образовательное развлечение!
+			.slider__pagination
+
+	// Section Faq
+	section.section-faq.container
+		h2.heading.section-faq__title Ответы на ваши вопросы
+		ul.faq.section-faq__faq
+			// Faq elem
+			li.faq__elem
+				.faq__title-box
+					p.faq__title Каковы возрастные ограничения для посещения диорамы?
+					.section-faq__cross-box
+						+svg("cross")(class="faq__cross")
+				.faq__content
+					p.faq__text Наша диорама рассчитана на детей в возрасте от 6 до 12 лет. Однако, дети младше 6 лет также могут посещать ее при наличии сопровождающих взрослых.
+			// Faq elem
+			li.faq__elem
+				.faq__title-box
+					p.faq__title Какой масштаб диорамы?
+					.section-faq__cross-box
+						+svg("cross")(class="faq__cross")
+				.faq__content
+					p.faq__text Наша диорама рассчитана на детей в возрасте от 6 до 12 лет. Однако, дети младше 6 лет также могут посещать ее при наличии сопровождающих взрослых.
+			// Faq elem
+			li.faq__elem
+				.faq__title-box
+					p.faq__title Могу ли я заказать билеты онлайн?
+					.section-faq__cross-box
+						+svg("cross")(class="faq__cross")
+				.faq__content
+					p.faq__text Наша диорама рассчитана на детей в возрасте от 6 до 12 лет. Однако, дети младше 6 лет также могут посещать ее при наличии сопровождающих взрослых.
+			// Faq elem
+			li.faq__elem
+				.faq__title-box
+					p.faq__title Есть ли у вас скидки для семей?
+					.section-faq__cross-box
+						+svg("cross")(class="faq__cross")
+				.faq__content
+					p.faq__text Наша диорама рассчитана на детей в возрасте от 6 до 12 лет. Однако, дети младше 6 лет также могут посещать ее при наличии сопровождающих взрослых.
+			// Faq elem
+			li.faq__elem
+				.faq__title-box
+					p.faq__title Могу ли я приобрести подарочный сертификат для друзей или родственников?
+					.section-faq__cross-box
+						+svg("cross")(class="faq__cross")
+				.faq__content
+					p.faq__text Наша диорама рассчитана на детей в возрасте от 6 до 12 лет. Однако, дети младше 6 лет также могут посещать ее при наличии сопровождающих взрослых.
+
+	// Section Drift
+	section.section-drift.container
+		.section-drift__grid
+			.section-drift__card
+				.section-drift__card-grid
+					.section-drift__content
+						h2.section-drift__title Также у нас есть Первый
+							|
+							|
+							span.color-orange дрифт-картинг
+							|
+							|в Чебоксарах
+						p.section-drift__text Почувствуйте адреналин с Drift Cart – настоящим дрифт-картом, который гарантирует незабываемые эмоции и море веселья для вас и вашего ребёнка
+					+picture("section-drift/img")(class="section-drift__img")
+				.section-drift__button-row
+					button.button.button--orange.button--orange-v3 Записаться онлайн
+					a.button.button--outline-orange(href="#", target="_blank") Перейти на сайт
+			.section-drift__video.video.video--mask3(href="https://youtube.com", target="_blank", rel="noreferrer nofollow")
+				+picture("section-video/cover2", "jpg")(class="video__cover")
+				.video__play
+					+svg("play")(class="video__play-icon")
+
+	section.section-map
+		#map.section-map__map
+		.section-map__container.container
+			.section-map__card
+				img.section-map__logo(src="images/common/logo.svg", alt)
+				p.section-map__title ТРЦ "Мадагаскар", 3 этаж
+				.section-map__group
+					p.section-map__small-text Телефон
+					a.section-map__text(href="tel:+79311066328") +7 (931) 106-63-28
+				.section-map__group
+					p.section-map__small-text Режим работы
+					p.section-map__text c 10:00 - 22:00
+				.section-map__group
+					p.section-map__small-text Адрес
+					address.section-map__text ул. Ленинского Комсомола, 21А

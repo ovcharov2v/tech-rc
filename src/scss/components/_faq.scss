@@ -1,0 +1,53 @@
+.faq {
+	&__elem {
+		position: relative;
+		border-bottom: 1px solid #ccc;
+	}
+
+	&__title-box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 19px 0;
+		cursor: pointer;
+	}
+
+	&__title {
+		font-size: 28px;
+		line-height: 1.4;
+		font-weight: 500;
+	}
+
+	&__corss-box {
+		margin-left: 32px;
+	}
+
+	&__cross {
+		flex-shrink: 0;
+		position: relative;
+		width: 29px;
+		height: 29px;
+		color: #ccc;
+		transition: transform $transition-default, color $transition-default;
+
+		.faq__elem--active & {
+			transform: rotate(45deg);
+			color: $color-orange;
+		}
+	}
+
+	&__content {
+		max-height: 0;
+		transition: max-height .6s;
+		overflow: hidden;
+
+		.faq__elem--active & {
+			max-height: 999px;
+			transition: max-height .9s;
+		}
+	}
+
+	&__text {
+		margin-bottom: 18px;
+	}
+}
