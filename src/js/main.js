@@ -1,6 +1,7 @@
 import './vendor';
 
 import './helpers/check-webp-support';
+import './components/_menu-scroll';
 import './components/_mobile-menu';
 import './components/_modals';
 import './components/_phone-mask';
