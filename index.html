@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width">
 		<title>Tech RC</title>
-		<link rel="stylesheet" href="./css/main.css?v=1695429438695">
+		<link rel="stylesheet" href="./css/main.css?v=1695496768808">
 	</head>
 	<body>
 		<header class="header">
@@ -13,13 +13,13 @@
 				<div class="header__content-box"><img class="header__logo" src="images/logo.svg" alt="Tech RC"/>
 					<nav>
 						<ul class="header__nav-list">
-							<li class="header__nav-elem"><a class="header__nav-link" href="#">О нас</a></li>
-							<li class="header__nav-elem"><a class="header__nav-link" href="#">Цены</a></li>
-							<li class="header__nav-elem"><a class="header__nav-link" href="#">Дни рождения</a></li>
-							<li class="header__nav-elem"><a class="header__nav-link" href="#">Отзывы</a></li>
-							<li class="header__nav-elem"><a class="header__nav-link" href="#">Контакты</a></li>
+							<li class="header__nav-elem"><a class="header__nav-link" href="#about">О нас</a></li>
+							<li class="header__nav-elem"><a class="header__nav-link" href="#price">Цены</a></li>
+							<li class="header__nav-elem"><a class="header__nav-link" href="#discount">Дни рождения</a></li>
+							<li class="header__nav-elem"><a class="header__nav-link" href="#reviews">Отзывы</a></li>
+							<li class="header__nav-elem"><a class="header__nav-link" href="#contacts">Контакты</a></li>
 						</ul>
-					</nav><a class="header__phone" href="tel:+79311066328">+7 931 106-63-28</a><a class="header__vk" href="https://vk.com" target="_blank">
+					</nav><a class="header__phone" href="tel:+79311066328">+7 931 106-63-28</a><a class="header__vk" href="https://vk.com" target="_blank" rel="noreferrer nofollow">
 						<svg class="header__vk-icon">
 							<use xlink:href="#vk"></use>
 						</svg></a>
@@ -28,7 +28,7 @@
 						<div class="header__menu-btn-line"></div>
 						<div class="header__menu-btn-line"></div>
 					</button>
-					<button class="button button--with-smile header__discount-button">Скидка 30%
+					<button class="button button--with-smile header__discount-button" data-modal="discount">Скидка 30%
 						<picture>
 							<source srcset="images/common/smile@1x.webp, images/common/smile@2x.webp 2x" type="image/webp"/><img class="button__smile" src="images/common/smile@1x.png" srcset="images/common/smile@2x.png 2x" alt=""/>
 						</picture>
@@ -36,6 +36,28 @@
 				</div>
 			</div>
 		</header>
+		<div class="mobile-menu">
+			<div class="mobile-menu__dropdown mobile-menu__close"></div>
+			<div class="mobile-menu__elem">
+				<ul class="mobile-menu__nav-list">
+					<li class="mobile-menu__nav-elem"><a class="mobile-menu__nav-link mobile-menu__close" href="#about">О нас</a></li>
+					<li class="mobile-menu__nav-elem"><a class="mobile-menu__nav-link mobile-menu__close" href="#price">Цены</a></li>
+					<li class="mobile-menu__nav-elem"><a class="mobile-menu__nav-link mobile-menu__close" href="#discount">Дни рождения</a></li>
+					<li class="mobile-menu__nav-elem"><a class="mobile-menu__nav-link mobile-menu__close" href="#reviews">Отзывы</a></li>
+					<li class="mobile-menu__nav-elem"><a class="mobile-menu__nav-link mobile-menu__close" href="#contacts">Контакты</a></li>
+				</ul><a class="mobile-menu__phone-link" href="tel:+79311066328">+7 931 106-63-28</a>
+				<div class="mobile-menu__bottom-box"><a class="mobile-menu__vk" href="https://vk.com" target="_blank" rel="noreferrer nofollow">
+						<svg class="mobile-menu__vk-icon">
+							<use xlink:href="#vk"></use>
+						</svg></a>
+					<button class="button button--with-smile mobile-menu__discount-button mobile-menu__close" data-modal="discount">Скидка 30%
+						<picture>
+							<source srcset="images/common/smile@1x.webp, images/common/smile@2x.webp 2x" type="image/webp"/><img class="button__smile" src="images/common/smile@1x.png" srcset="images/common/smile@2x.png 2x" alt=""/>
+						</picture>
+					</button>
+				</div>
+			</div>
+		</div>
 		<main class="main">
 			<!-- Section Hero-->
 			<section class="section-hero">
@@ -84,7 +106,7 @@
 						</div></a></div>
 			</div>
 			<!-- Section About-->
-			<section class="section-about container">
+			<section class="section-about container" id="about">
 				<div class="section-about__content">
 					<div class="section-about__text-box">
 						<h2 class="heading section-about__title">Что такое наша диорама?</h2>
@@ -117,6 +139,9 @@
 			</section>
 			<!-- Section For children-->
 			<section class="section-for-children container">
+				<picture>
+					<source srcset="images/section-for-children/img1@1x.webp, images/section-for-children/img1@2x.webp 2x" type="image/webp"/><img class="section-for-children__img-mobile section-for-children__img-mobile--n1" src="images/section-for-children/img1@1x.jpg" srcset="images/section-for-children/img1@2x.jpg 2x" alt=""/>
+				</picture>
 				<div class="section-for-children__content-box">
 					<picture>
 						<source srcset="images/section-for-children/img1@1x.webp, images/section-for-children/img1@2x.webp 2x" type="image/webp"/><img class="section-for-children__img1" src="images/section-for-children/img1@1x.jpg" srcset="images/section-for-children/img1@2x.jpg 2x" alt=""/>
@@ -136,9 +161,12 @@
 						<button class="button button--orange button--orange-v1 section-for-children__button">Записаться онлайн</button>
 					</div>
 				</div>
+				<picture>
+					<source srcset="images/section-for-children/img-mobile2@1x.webp, images/section-for-children/img-mobile2@2x.webp 2x" type="image/webp"/><img class="section-for-children__img-mobile section-for-children__img-mobile--n2" src="images/section-for-children/img-mobile2@1x.jpg" srcset="images/section-for-children/img-mobile2@2x.jpg 2x" alt=""/>
+				</picture>
 			</section>
 			<!-- Section Levels-->
-			<section class="section-levels container">
+			<section class="section-levels container" id="price">
 				<h2 class="heading section-levels__title">Цены и уровни сложности</h2>
 				<div class="section-levels__grid">
 					<!-- Card-->
@@ -212,7 +240,7 @@
 				</div>
 			</div>
 			<!-- Section Discount-->
-			<section class="section-discount container">
+			<section class="section-discount container" id="discount">
 				<div class="section-discount__content-box">
 					<div class="section-discount__content">
 						<h2 class="heading color-orange section-discount__title">Скидка 30%</h2>
@@ -223,7 +251,7 @@
 				</div>
 			</section>
 			<!-- Section Review-->
-			<div class="section-review container">
+			<div class="section-review container" id="reviews">
 				<h2 class="heading section-review__title">Отзывы о нашей диораме</h2>
 				<div class="slider slider--review">
 					<div class="swiper slider__elem">
@@ -347,7 +375,7 @@
 							<div class="section-drift__content">
 								<h2 class="section-drift__title">
 									Также у нас есть Первый
-									<span class="color-orange">дрифт-картинг</span>
+									<span class="section-drift__title-orange">дрифт-картинг</span>
 									в Чебоксарах
 								</h2>
 								<p class="section-drift__text">Почувствуйте адреналин с Drift Cart – настоящим дрифт-картом, который гарантирует незабываемые эмоции и море веселья для вас и вашего ребёнка</p>
@@ -372,19 +400,20 @@
 					</div>
 				</div>
 			</section>
-			<section class="section-map">
+			<section class="section-map" id="contacts">
 				<div class="section-map__map" id="map"></div>
 				<div class="section-map__container container">
 					<div class="section-map__card"><img class="section-map__logo" src="images/common/logo.svg" alt>
+						<p class="section-map__name">Tech RC</p>
 						<p class="section-map__title">ТРЦ "Мадагаскар", 3 этаж</p>
 						<div class="section-map__group">
-							<p class="section-map__small-text">Телефон</p><a class="section-map__text" href="tel:+79311066328">+7 (931) 106-63-28</a>
+							<p class="section-map__small-text">Телефон</p><a class="section-map__phone" href="tel:+79311066328">+7 (931) 106-63-28</a>
 						</div>
 						<div class="section-map__group">
 							<p class="section-map__small-text">Режим работы</p>
 							<p class="section-map__text">c 10:00 - 22:00</p>
 						</div>
-						<div class="section-map__group">
+						<div class="section-map__group section-map__group--hide-mobile">
 							<p class="section-map__small-text">Адрес</p>
 							<address class="section-map__text">ул. Ленинского Комсомола, 21А</address>
 						</div>
@@ -398,12 +427,43 @@
 				<div class="footer__text-box">
 					<p class="footer__text">
 						Руководитель:
-						<a class="footer__link" href="#">Северинов Никита Анатольевич</a>
-					</p><a class="footer__link" href="#">Юридические соглашения</a>
+						<a class="footer__link" href="#" target="_blank" rel="noreferrer nofollow">Северинов Никита Анатольевич</a>
+					</p><a class="footer__link" href="#" target="_blank" rel="noreferrer nofollow">Юридические соглашения</a>
 					<p class="footer__text">ОГРН 1222100006600</p><a class="footer__text" href="mailto:info@driftcart.ru">info@driftcart.ru</a>
 				</div>
 			</div>
-		</footer><svg width="0" height="0" class="hidden">
+		</footer>
+		<!--  Modal Discount-->
+		<div class="modal modal--discount">
+			<div class="modal__body">
+				<button class="modal__close js-modal-close" aria-label="Close modal">
+					<svg class="modal__close-icon">
+						<use xlink:href="#cross"></use>
+					</svg>
+				</button>
+				<div class="modal__content">
+					<h2 class="modal__title">
+						Получить
+						<span class="color-orange">скидку 30%</span>
+					</h2>
+					<p class="modal__text">Купон даёт право получить 30% скидку  в честь дня рождения</p>
+					<p class="modal__text">Купон будет отправлен в СМС на указанный номер телефона</p>
+					<form class="modal__form" action="#" target="_blank" rel="noreferrer nofollow">
+						<div class="modal__input-group">
+							<label class="modal__label" for="name">Ваше Имя *</label>
+							<input class="modal__input" id="name" type="text" name="name" required="required"/>
+						</div>
+						<div class="modal__input-group">
+							<label class="modal__label" for="phone">Мобильный телефон *</label>
+							<input class="modal__input" id="phone" type="tel" name="phone" required="required"/>
+						</div>
+						<div class="modal__submit-box">
+							<button class="button button--orange button--orange-v1 modal__button" type="submit">Получить скидку</button><a class="modal__agreement" href="#">Отправляя форму, вы соглашаетесь с Пользовательским соглашением, Политикой обработки персональных данных и Политикой Конфиденциальности</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div><svg width="0" height="0" class="hidden">
 	<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 74" id="play">
 		<circle cx="37" cy="37" r="37" fill="#F9F5ED"></circle>
 		<path d="M46 37.0121C46 37.644 45.8182 38.2783 45.4545 38.7861C45.3864 38.8858 45.0682 39.2965 44.8182 39.5638L44.6818 39.7096C42.7727 41.9235 38.0227 45.2527 35.6136 46.3196C35.6136 46.3439 34.1818 46.9781 33.5 47H33.4091C32.3636 47 31.3864 46.3706 30.8864 45.3499C30.6136 44.7886 30.3636 43.1604 30.3409 43.1385C30.1364 41.678 30 39.4423 30 36.9879C30 34.4143 30.1364 32.079 30.3864 30.6452C30.3864 30.6209 30.6364 29.3086 30.7955 28.8712C31.0455 28.2418 31.5 27.7047 32.0682 27.3645C32.5227 27.1239 33 27 33.5 27C34.0227 27.0267 35 27.3888 35.3864 27.5589C37.9318 28.6282 42.7955 32.1276 44.6591 34.2661C44.9773 34.6063 45.3182 35.0219 45.4091 35.1166C45.7955 35.6513 46 36.3074 46 37.0121Z" fill="#F74C25"></path>
@@ -419,7 +479,7 @@
 </svg>
 
 		<script src="//api-maps.yandex.ru/2.1/?load=package.standard,package.geoObjects&amp;lang=ru-RU" type="text/javascript"></script>
-		<script src="./js/vendor.js?v=1695429438697"></script>
-		<script src="./js/main.js?v=1695429438697"></script>
+		<script src="./js/vendor.js?v=1695496768814"></script>
+		<script src="./js/main.js?v=1695496768814"></script>
 	</body>
 </html>

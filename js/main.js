@@ -198,7 +198,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var map = new ymaps.Map("map", {
         center: [56.107564, 47.280965],
         zoom: 15,
-        controls: []
+        controls: [],
+        behaviors: []
       }),
       markerDesktop = new ymaps.Placemark([56.107564, 47.280965], {}, {
         iconLayout: 'default#image',
@@ -210,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
         iconLayout: 'default#image',
         iconImageHref: './images/section-map/map-marker-mobile.png',
         iconImageSize: [390, 185],
-        iconImageOffset: [-195, -185]
+        iconImageOffset: [-195, -85]
       });
     map.behaviors.disable(['scrollZoom']);
     addPlaceMark(map, markerDesktop, markerMobile);
@@ -224,15 +225,43 @@ document.addEventListener('DOMContentLoaded', function () {
         currentMarker = 'mobile';
         map.geoObjects.remove(markerDesktop);
         map.geoObjects.add(markerMobile);
+        map.setCenter([56.109423, 47.280965]);
       }
     } else {
       if (currentMarker !== 'desktop') {
         currentMarker = 'desktop';
         map.geoObjects.remove(markerMobile);
         map.geoObjects.add(markerDesktop);
+        map.setCenter([56.107564, 47.280965]);
       }
     }
   };
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_menu-scroll.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/_menu-scroll.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll(['.mobile-menu__nav-link', '.header__nav-link']).forEach(function (a) {
+    a.addEventListener('click', function (event) {
+      event.preventDefault();
+      var hash = event.target.getAttribute('href');
+      var scrollTarget = document.querySelector(hash);
+      var headerHeight = document.querySelector('.header').scrollHeight;
+      console.log(scrollTarget.offsetTop - headerHeight);
+      window.scrollTo({
+        top: scrollTarget.offsetTop - headerHeight,
+        left: 0,
+        behavior: "smooth"
+      });
+    });
+  });
 });
 
 /***/ }),
@@ -253,11 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', function () {
       if (document.body.classList.contains('mobile-menu-opening') || document.body.classList.contains('mobile-menu-opened')) {
-        document.body.classList.remove('mobile-menu-opened');
-        setTimeout(function () {
-          document.body.style.overflow = '';
-          document.body.classList.remove('mobile-menu-opening');
-        }, 300);
+        closeMobileMenu();
       } else {
         document.body.classList.add('mobile-menu-opening');
         document.body.style.overflow = 'hidden';
@@ -265,6 +290,106 @@ document.addEventListener('DOMContentLoaded', function () {
           document.body.classList.add('mobile-menu-opened');
         });
       }
+    });
+  }
+  var closeMobileMenu = function closeMobileMenu() {
+    document.body.classList.remove('mobile-menu-opened');
+    headerMenuButton.classList.remove('header__menu-btn--active');
+    setTimeout(function () {
+      document.body.style.overflow = '';
+      document.body.classList.remove('mobile-menu-opening');
+    }, 300);
+  };
+  var closeMenuList = document.querySelectorAll('.mobile-menu__close');
+  closeMenuList.forEach(function (closeMenu) {
+    closeMenu.addEventListener('click', function () {
+      return closeMobileMenu();
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_modals.js":
+/*!**************************************!*\
+  !*** ./src/js/components/_modals.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Open modal window
+  var modalLinks = document.querySelectorAll('[data-modal]');
+  modalLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var modal = document.querySelector(".modal--".concat(e.target.dataset.modal));
+      if (!modal) {
+        console.log("Modal .modal--".concat(e.target.dataset.modal, " does not exist!"));
+        return;
+      }
+      document.body.style.overflow = 'hidden';
+      modal.classList.add('modal--show');
+      setTimeout(function () {
+        modal.classList.add('modal--backdrop');
+      }, 50, modal);
+      setTimeout(function () {
+        modal.classList.add('modal--shown');
+      }, 300, modal);
+      return false;
+    });
+  });
+
+  // Close modal window
+  function closeModal() {
+    var modal = document.querySelector('.modal--shown');
+    modal.classList.remove('modal--shown');
+    setTimeout(function () {
+      modal.classList.remove('modal--backdrop');
+    }, 150, modal);
+    setTimeout(function () {
+      modal.classList.remove('modal--show');
+      document.body.style.overflow = '';
+    }, 350, modal);
+  }
+  var closeButtons = document.querySelectorAll('.js-modal-close');
+  closeButtons.forEach(function (button) {
+    button.addEventListener('click', closeModal);
+  });
+
+  // Close on backdrop click
+  var modalList = document.querySelectorAll('.modal');
+  if (modalList) {
+    modalList.forEach(function (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target.classList.contains('modal')) {
+          closeModal();
+        }
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_phone-mask.js":
+/*!******************************************!*\
+  !*** ./src/js/components/_phone-mask.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+
+document.addEventListener('DOMContentLoaded', function () {
+  var phoneInputList = document.querySelectorAll('input[type="tel"]');
+  if (phoneInputList.length) {
+    phoneInputList.forEach(function (phoneInput) {
+      Object(imask__WEBPACK_IMPORTED_MODULE_0__["default"])(phoneInput, {
+        mask: '+{7} 000 000 00 00'
+      });
     });
   }
 });
@@ -290,8 +415,8 @@ document.addEventListener('DOMContentLoaded', function () {
   sliderList.forEach(function (slider) {
     new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](slider.querySelector('.swiper'), {
       modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__["Pagination"]],
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 1,
+      spaceBetween: 15,
       grabCursor: true,
       initialSlide: Math.floor(slider.querySelectorAll('.slider__slide').length / 2),
       centeredSlides: true,
@@ -300,6 +425,16 @@ document.addEventListener('DOMContentLoaded', function () {
         type: 'bullets',
         bulletClass: 'slider__bullet',
         bulletActiveClass: 'slider__bullet--active'
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
       }
     });
   });
@@ -344,13 +479,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_vendor__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _helpers_check_webp_support__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/check-webp-support */ "./src/js/helpers/check-webp-support.js");
 /* harmony import */ var _helpers_check_webp_support__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_helpers_check_webp_support__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_mobile_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/_mobile-menu */ "./src/js/components/_mobile-menu.js");
-/* harmony import */ var _components_mobile_menu__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_mobile_menu__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/_slider */ "./src/js/components/_slider.js");
-/* harmony import */ var _components_faq__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/_faq */ "./src/js/components/_faq.js");
-/* harmony import */ var _components_faq__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_faq__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/_map */ "./src/js/components/_map.js");
-/* harmony import */ var _components_map__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_components_map__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_menu_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/_menu-scroll */ "./src/js/components/_menu-scroll.js");
+/* harmony import */ var _components_menu_scroll__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_menu_scroll__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_mobile_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/_mobile-menu */ "./src/js/components/_mobile-menu.js");
+/* harmony import */ var _components_mobile_menu__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_mobile_menu__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_modals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/_modals */ "./src/js/components/_modals.js");
+/* harmony import */ var _components_modals__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_modals__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_phone_mask__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/_phone-mask */ "./src/js/components/_phone-mask.js");
+/* harmony import */ var _components_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/_slider */ "./src/js/components/_slider.js");
+/* harmony import */ var _components_faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/_faq */ "./src/js/components/_faq.js");
+/* harmony import */ var _components_faq__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_faq__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/_map */ "./src/js/components/_map.js");
+/* harmony import */ var _components_map__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_components_map__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
 
 
 
