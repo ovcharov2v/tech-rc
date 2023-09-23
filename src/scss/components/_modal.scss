@@ -1,0 +1,152 @@
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 888;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	transition: background-color 0.2s;
+	-webkit-overflow-scrolling: touch;
+
+	&--show {
+		display: flex;
+	}
+
+	&--backdrop {
+		background-color: rgba(#1F0D09, .75);
+	}
+
+	&__body {
+		display: block;
+		width: 100%;
+		margin: auto auto 0;
+		padding: 25px 10px;
+		background-color: #F8EEE6;
+		border-radius: 24px 24px 0 0;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+		transition: transform 0.3s ease-in-out, opacity 0.7s ease;
+		opacity: 0;
+		transform: perspective(600px) translateY(350px) rotateX(-45deg) scale(0.7);
+		transform-origin: 50% 0;
+		overflow: hidden;
+
+		@include desktop {
+			margin-bottom: auto;
+			padding: 40px;
+			max-width: 630px;
+			border-radius: 24px;
+		}
+
+		.modal--shown & {
+			opacity: 1;
+			transform: perspective(600px) translateY(0) rotateX(0) scale(1);
+		}
+	}
+
+	&__content {
+		max-width: 352px;
+		margin: 0 auto;
+
+		@include desktop {
+			max-width: 100%;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 42px;
+		height: 42px;
+		padding: 0;
+		background-color: $color-transparent;
+		border-width: 0;
+		cursor: pointer;
+	}
+
+	&__close-icon {
+		width: 20px;
+		height: 20px;
+		transform: rotate(45deg);
+	}
+
+	&__title {
+		margin-bottom: 26px;
+		font-family: $font-secondary;
+		font-size: 42px;
+		line-height: 1.1;
+
+		@include desktop {
+			margin-bottom: 6px;
+		}
+	}
+
+	&__text {
+		margin-bottom: 20px;
+		font-size: 18px;
+		line-height: 1.1;
+	}
+
+	&__input-group {
+		margin-bottom: 10px;
+	}
+
+	&__label {
+		display: block;
+		font-size: 14px;
+		color: #4F4F4F;
+	}
+
+	&__input {
+		display: block;
+		width: 100%;
+		padding: 3px 0 5px;
+		font-size: 18px;
+		line-height: 1;
+		background-color: $color-transparent;
+		color: $color-orange;
+		border-width: 0;
+		border-bottom: 1px solid #4F4F4F;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__submit-box {
+		display: flex;
+		flex-direction: column-reverse;
+
+		@include desktop {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+	}
+
+	&__button {
+		margin-top: 25px;
+
+		@include desktop {
+			min-width: 48%;
+			margin-top: 0;
+			margin-right: 20px;
+		}
+	}
+
+	&__agreement {
+		font-size: 12px;
+		line-height: 1.4;
+		color: #4F4F4F;
+		text-decoration: underline;
+		transition: color $transition-default;
+
+		&:hover {
+			color: $color-orange;
+		}
+	}
+}

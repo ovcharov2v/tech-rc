@@ -1,9 +1,9 @@
 .header {
-	position: absolute;
+	position: fixed;
 	z-index: 999;
 	top: 0;
 	left: 0;
-	width: 100%;
+	right: 0;
 
 	@include desktop {
 		top: 20px;
@@ -22,6 +22,7 @@
 		padding: 14px 10px;
 		background-color: $color-white;
 		border-radius: 0 0 24px 24px;
+		box-shadow: 0 4px 12px rgba(#000, .05);
 
 		@include tablet {
 			padding: 14px 24px;

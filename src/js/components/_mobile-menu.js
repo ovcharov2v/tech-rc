@@ -5,16 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	const mobileMenuBtn = document.querySelector('.header__menu-btn')
-	if(mobileMenuBtn) {
+	if (mobileMenuBtn) {
 		mobileMenuBtn.addEventListener('click', () => {
-			if(document.body.classList.contains('mobile-menu-opening') || document.body.classList.contains('mobile-menu-opened')) {
-				document.body.classList.remove('mobile-menu-opened')
-				setTimeout(() => {
-					document.body.style.overflow = ''
-					document.body.classList.remove('mobile-menu-opening')
-				}, 300)
-			}
-			else {
+			if (document.body.classList.contains('mobile-menu-opening') || document.body.classList.contains('mobile-menu-opened')) {
+				closeMobileMenu()
+			} else {
 				document.body.classList.add('mobile-menu-opening')
 				document.body.style.overflow = 'hidden'
 				setTimeout(() => {
@@ -23,4 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	}
+
+	const closeMobileMenu = () => {
+		document.body.classList.remove('mobile-menu-opened')
+		headerMenuButton.classList.remove('header__menu-btn--active')
+		setTimeout(() => {
+			document.body.style.overflow = ''
+			document.body.classList.remove('mobile-menu-opening')
+		}, 300)
+	}
+
+	const closeMenuList = document.querySelectorAll('.mobile-menu__close')
+	closeMenuList.forEach((closeMenu) => {
+		closeMenu.addEventListener('click', () => closeMobileMenu())
+	})
 })

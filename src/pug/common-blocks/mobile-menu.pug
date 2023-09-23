@@ -1,2 +1,22 @@
 mixin mobileMenu()
 	.mobile-menu
+		.mobile-menu__dropdown.mobile-menu__close
+		.mobile-menu__elem
+			ul.mobile-menu__nav-list
+				li.mobile-menu__nav-elem
+					a.mobile-menu__nav-link(href="#") О нас
+				li.mobile-menu__nav-elem
+					a.mobile-menu__nav-link(href="#") Цены
+				li.mobile-menu__nav-elem
+					a.mobile-menu__nav-link(href="#") Дни рождения
+				li.mobile-menu__nav-elem
+					a.mobile-menu__nav-link(href="#") Отзывы
+				li.mobile-menu__nav-elem
+					a.mobile-menu__nav-link(href="#") Контакты
+			a.mobile-menu__phone-link(href="tel:+79311066328") +7 931 106-63-28
+			.mobile-menu__bottom-box
+				a.mobile-menu__vk(href="https://vk.com", target="_blank", rel="noreferrer nofollow")
+					+svg("vk")(class="mobile-menu__vk-icon")
+				button.button.button--with-smile.mobile-menu__discount-button.mobile-menu__close(data-modal="discount")
+					| Скидка 30%
+					+picture("common/smile", "png")(class="button__smile")

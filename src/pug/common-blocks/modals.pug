@@ -1,0 +1,23 @@
+mixin modals()
+	//  Modal Discount
+	.modal.modal--discount
+		.modal__body
+			button.modal__close.js-modal-close(aria-label='Close modal')
+				+svg("cross")(class="modal__close-icon")
+			.modal__content
+				h2.modal__title Получить
+					|
+					|
+					span.color-orange скидку 30%
+				p.modal__text Купон даёт право получить 30% скидку  в честь дня рождения
+				p.modal__text Купон будет отправлен в СМС на указанный номер телефона
+				form.modal__form(action="#", target="_blank", rel="noreferrer nofollow")
+					.modal__input-group
+						label.modal__label(for="name") Ваше Имя *
+						input#name.modal__input(type='text', name="name", required)
+					.modal__input-group
+						label.modal__label(for="phone") Мобильный телефон *
+						input#phone.modal__input(type='tel', name="phone", required)
+					.modal__submit-box
+						button.button.button--orange.button--orange-v1.modal__button(type='submit') Получить скидку
+						a.modal__agreement(href="#") Отправляя форму, вы соглашаетесь с Пользовательским соглашением, Политикой обработки персональных данных и Политикой Конфиденциальности
