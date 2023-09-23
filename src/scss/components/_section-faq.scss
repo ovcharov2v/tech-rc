@@ -1,9 +1,19 @@
 .section-faq {
-	padding-top: 55px;
-	padding-bottom: 44px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+
+	@include desktop {
+		padding-top: 55px;
+		padding-bottom: 44px;
+	}
 
 	&__title {
 		margin-bottom: 20px;
+		letter-spacing: -.05em;
+
+		@include desktop {
+			letter-spacing: unset;
+		}
 	}
 
 	&__faq {

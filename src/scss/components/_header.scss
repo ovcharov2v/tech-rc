@@ -1,33 +1,70 @@
 .header {
 	position: absolute;
 	z-index: 999;
-	top: 20px;
+	top: 0;
 	left: 0;
 	width: 100%;
+
+	@include desktop {
+		top: 20px;
+	}
+
+	&__container {
+		@media (max-width: $breakpoint-desktop) {
+			padding: 0;
+			max-width: 100%;
+		}
+	}
 
 	&__content-box {
 		display: flex;
 		align-items: center;
-		margin: 0 -30px;
-		padding: 15px 30px;
+		padding: 14px 10px;
 		background-color: $color-white;
-		border-radius: 60px;
+		border-radius: 0 0 24px 24px;
+
+		@include tablet {
+			padding: 14px 24px;
+		}
+
+		@include desktop {
+			margin: 0 -30px;
+			padding: 15px 30px;
+			border-radius: 60px;
+		}
 	}
 
 	&__logo {
 		display: block;
 		width: 100%;
-		max-width: 170px;
-		margin-right: 60px;
+		max-width: 142px;
+
+		@include desktop {
+			max-width: 110px;
+			margin-right: 20px;
+		}
+
+		@media (min-width: 1200px) {
+			max-width: 170px;
+			margin-right: 60px;
+		}
 	}
 
 	&__nav-list {
-		display: flex;
+		display: none;
+
+		@include desktop {
+			display: flex;
+		}
 	}
 
 	&__nav-elem {
 		&:not(:last-child) {
-			margin-right: 25px;
+			margin-right: 12px;
+
+			@media (min-width: 1200px) {
+				margin-right: 25px;
+			}
 		}
 	}
 
@@ -42,12 +79,17 @@
 	}
 
 	&__phone {
+		display: inline-block;
 		margin-left: auto;
-		margin-right: 20px;
+		margin-right: 12px;
 		font-size: 16px;
 		line-height: 1;
 		font-weight: 500;
 		color: $color-orange;
+
+		@media (min-width: 1200px) {
+			margin-right: 20px;
+		}
 
 		&:hover {
 			text-decoration: underline;
@@ -55,8 +97,16 @@
 	}
 
 	&__vk {
-		display: inline-block;
-		margin-right: 20px;
+		display: none;
+		margin-right: 12px;
+
+		@include desktop {
+			display: inline-block;
+		}
+
+		@media (min-width: 1200px) {
+			margin-right: 20px;
+		}
 	}
 
 	&__vk-icon {
@@ -68,6 +118,64 @@
 
 		&:hover {
 			color: lighten($color-orange, 40%);
+		}
+	}
+
+	&__discount-button {
+		display: none;
+
+		@include desktop {
+			display: inline-block;
+		}
+	}
+
+	&__menu-btn {
+		position: relative;
+		width: 50px;
+		height: 40px;
+		border: 1px solid #000;
+		border-radius: 8px;
+		background-color: $color-transparent;
+
+		@include desktop {
+			display: none;
+		}
+	}
+
+	&__menu-btn-line {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 30px;
+		height: 2px;
+		border-bottom: 2px solid #000;
+		transition: transform $transition-default, border-color $transition-default;
+
+		&:nth-child(1) {
+			transform: translate(-50%, -9px);
+
+			.header__menu-btn--active & {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+		}
+
+		&:nth-child(2) {
+			transform: translateX(-50%);
+			.header__menu-btn--active & {
+				opacity: 0;
+			}
+		}
+
+		&:nth-child(3) {
+			transform: translate(-50%, 9px);
+
+			.header__menu-btn--active & {
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+
+		.header__menu-btn--active & {
+			border-color: $color-orange;
 		}
 	}
 }

@@ -1,4 +1,9 @@
 .section-slider {
-	padding-top: 41px;
+	padding-top: 25px;
 	padding-bottom: 10px;
+
+	@include desktop {
+		padding-top: 41px;
+		padding-bottom: 10px;
+	}
 }

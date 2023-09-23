@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliderList.forEach((slider) => {
 		new Swiper(slider.querySelector('.swiper'), {
 			modules: [Pagination],
-			slidesPerView: 3,
-			spaceBetween: 30,
+			slidesPerView: 1,
+			spaceBetween: 15,
 			grabCursor: true,
 			initialSlide: Math.floor(slider.querySelectorAll('.slider__slide').length/2),
 			centeredSlides: true,
@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				type: 'bullets',
 				bulletClass: 'slider__bullet',
 				bulletActiveClass: 'slider__bullet--active',
+			},
+			breakpoints: {
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				}
 			}
 		})
 	})

@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		var map = new ymaps.Map("map", {
 				center: [56.107564, 47.280965],
 				zoom: 15,
-				controls: []
+				controls: [],
+				behaviors: []
 			}),
 
 			markerDesktop = new ymaps.Placemark([56.107564, 47.280965], {}, {
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				iconLayout: 'default#image',
 				iconImageHref: './images/section-map/map-marker-mobile.png',
 				iconImageSize: [390, 185],
-				iconImageOffset: [-195, -185]
+				iconImageOffset: [-195, -85]
 			})
 
 		map.behaviors.disable(['scrollZoom'])
@@ -38,12 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
 				currentMarker = 'mobile'
 				map.geoObjects.remove(markerDesktop)
 				map.geoObjects.add(markerMobile)
+				map.setCenter([56.109423, 47.280965])
 			}
 		} else {
 			if (currentMarker !== 'desktop') {
 				currentMarker = 'desktop'
 				map.geoObjects.remove(markerMobile)
 				map.geoObjects.add(markerDesktop)
+				map.setCenter([56.107564, 47.280965])
 			}
 		}
 	}

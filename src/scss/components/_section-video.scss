@@ -1,6 +1,11 @@
 .section-video {
+	display: none;
 	padding-top: 11px;
 	padding-bottom: 30px;
+
+	@include desktop {
+		display: block;
+	}
 
 	&__grid {
 		display: grid;

@@ -6,20 +6,35 @@
 	background-position: top center;
 	background-repeat: no-repeat;
 	color: $color-white;
+	text-align: center;
+
+	@include desktop {
+		text-align: left;
+	}
 
 	&__container {
 		position: relative;
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		height: 660px;
 		min-height: 100vh;
 		padding-top: 70px;
 		padding-bottom: 170px;
+
+		@media (max-width: $breakpoint-desktop) {
+			max-width: 100%;
+		}
+
+		@include desktop {
+			justify-content: flex-start;
+		}
 
 		&::before {
 			position: absolute;
 			z-index: -1;
 			top: 0;
-			right: 100%;
+			right: calc(100% - 1px);
 			width: 100vw;
 			height: 100%;
 			background-color: #1F0D09;
@@ -33,22 +48,46 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-image: linear-gradient(90deg, #1F0D09 0%, rgba(31, 13, 9, 0.70) 26.04%, rgba(31, 13, 9, 0.20) 50%, rgba(31, 13, 9, 0.00) 100%);
+			background-color: rgba(#1F0D09, .75);
 			content: "";
+		}
+
+		@include desktop {
+			&::after {
+				background-color: $color-transparent;
+				background-image: linear-gradient(90deg, #1F0D09 0%, rgba(31, 13, 9, 0.70) 26.04%, rgba(31, 13, 9, 0.20) 50%, rgba(31, 13, 9, 0.00) 100%);
+			}
 		}
 	}
 
 	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include desktop {
+			display: block;
+		}
 	}
 
 	&__title {
-		max-width: 540px;
-		margin-bottom: 5px;
+		margin-bottom: 20px;
+		max-width: 370px;
+
+		@include desktop {
+			max-width: 540px;
+			margin-bottom: 5px;
+		}
 	}
 
 	&__text {
-		max-width: 400px;
-		margin-bottom: 18px;
+		margin-bottom: 25px;
+		max-width: 370px;
+
+		@include desktop {
+			max-width: 400px;
+			margin-bottom: 18px;
+		}
 	}
 
 	&__button {
@@ -60,25 +99,47 @@
 		position: absolute;
 		z-index: 0;
 		left: 0;
-		bottom: 0;
+		bottom: -1px;
 		display: flex;
 		width: 100%;
-		height: 150px;
-		padding-left: 43px;
+		height: 112px;
+		padding-left: 10px;
 		padding-top: 18px;
 		line-height: 1;
+		text-align: left;
+		background-color: $color-white;
+		border-radius: 24px 24px 0 0;
+
+		@include desktop {
+			height: 150px;
+		}
 
 		&::before {
 			position: absolute;
 			z-index: -1;
 			top: 0;
-			left: -20px;
-			width: calc(100% + 20px);
+			width: 100%;
 			height: 100%;
-			background-image: url("../images/section-hero/bottom-bg.svg");
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
 			content: "";
+		}
+
+		@include tablet {
+			padding-left: 24px;
+		}
+
+		@include desktop {
+			padding-left: 43px;
+			background-color: $color-transparent;
+			min-width: 1300px;
+
+			&::before {
+				left: -20px;
+				width: calc(100% + 20px);
+				background-color: $color-transparent;
+				background-image: url("../images/section-hero/bottom-bg.svg");
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
 		}
 	}
 
@@ -103,4 +164,5 @@
 		font-weight: 600;
 		color: $color-black;
 	}
+
 }

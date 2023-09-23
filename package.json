@@ -1,5 +1,5 @@
 {
-	"name": "teach-rc",
+	"name": "tech-rc",
 	"version": "3.0.4",
 	"description": "",
 	"author": "",
@@ -8,7 +8,7 @@
 	"repository": "",
 	"scripts": {
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build -r https://github.com/ovcharov2v/teach-rc.git",
+		"deploy": "gh-pages -d build -r https://github.com/ovcharov2v/tech-rc.git",
 		"start": "gulp",
 		"build": "gulp build"
 	},

@@ -25,7 +25,7 @@ block content
 	.section-quote
 		.section-quote__container.container
 			blockquote.section-quote__content «Мы стремились запечатлеть каждую деталь, чтобы вы могли увидеть реализм и красоту наших моделей строительной техники и сельских сцен. Интерактивные элементы позволят вам вжиться в роль маленьких строителей и фермеров, меняя диораму под собственное видение»
-			+picture("section-quote/img", "section-quote__img")
+			+picture("section-quote/img")(class="section-quote__img")
 
 	// Section Video
 	.section-video.container
@@ -47,7 +47,7 @@ block content
 				p.section-about__text Это масштабная модель, созданная с любовью к деталям, чтобы максимально точно воссоздать атмосферу стройки и сельского хозяйства. Каждая машина и каждое здание проработаны с удивительной точностью, чтобы создать реалистичный мир, в котором можно провести много часов развлечений.
 				p.section-about__text Ваши дети будут в восторге от возможности управлять разнообразной строительной техникой: от мощных тракторов до грозных экскаваторов и высоких кранов. Это не просто игрушка, это настоящая возможность погрузиться в мир строительства и узнать, как работают настоящие машины.
 			.section-about__image-box
-				+picture("section-about/img", "section-about__image")
+				+picture("section-about/img")(class="section-about__image")
 		.section-about__grid
 			// Card
 			article.section-about__card
@@ -67,6 +67,7 @@ block content
 
 	// Section For children
 	section.section-for-children.container
+		+picture("section-for-children/img1")(class="section-for-children__img-mobile section-for-children__img-mobile--n1")
 		.section-for-children__content-box
 			+picture("section-for-children/img1")(class="section-for-children__img1")
 			.section-for-children__img-box
@@ -77,6 +78,7 @@ block content
 				p.section-for-children__age от 3 до 12 лет
 				p.section-for-children__text Диорама станет площадкой для творчества, где дети могут создавать свои собственные миры и рассказы
 				button.button.button--orange.button--orange-v1.section-for-children__button Записаться онлайн
+		+picture("section-for-children/img-mobile2")(class="section-for-children__img-mobile section-for-children__img-mobile--n2")
 
 	// Section Levels
 	section.section-levels.container
@@ -220,7 +222,7 @@ block content
 						h2.section-drift__title Также у нас есть Первый
 							|
 							|
-							span.color-orange дрифт-картинг
+							span.section-drift__title-orange дрифт-картинг
 							|
 							|в Чебоксарах
 						p.section-drift__text Почувствуйте адреналин с Drift Cart – настоящим дрифт-картом, который гарантирует незабываемые эмоции и море веселья для вас и вашего ребёнка
@@ -238,13 +240,14 @@ block content
 		.section-map__container.container
 			.section-map__card
 				img.section-map__logo(src="images/common/logo.svg", alt)
+				p.section-map__name Tech RC
 				p.section-map__title ТРЦ "Мадагаскар", 3 этаж
 				.section-map__group
 					p.section-map__small-text Телефон
-					a.section-map__text(href="tel:+79311066328") +7 (931) 106-63-28
+					a.section-map__phone(href="tel:+79311066328") +7 (931) 106-63-28
 				.section-map__group
 					p.section-map__small-text Режим работы
 					p.section-map__text c 10:00 - 22:00
-				.section-map__group
+				.section-map__group.section-map__group--hide-mobile
 					p.section-map__small-text Адрес
 					address.section-map__text ул. Ленинского Комсомола, 21А

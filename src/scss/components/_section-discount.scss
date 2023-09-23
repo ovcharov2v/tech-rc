@@ -1,34 +1,57 @@
 .section-discount {
-	margin-top: -46px;
-	padding-bottom: 50px;
+	padding-top: 40px;
+	padding-bottom: 25px;
+
+	@include desktop {
+		margin-top: -46px;
+		padding-bottom: 50px;
+	}
 
 	&__content-box {
-		@include background-image("section-discount/bg");
+		@include background-image("section-discount/bg-mobile");
 		position: relative;
-		height: 600px;
-		padding-top: 270px;
-		padding-left: 8.3%;
+		padding-top: 468px;
+		padding-bottom: 35px;
 		background-size: 100% 100%;
 		background-position: center;
 		background-repeat: no-repeat;
+		max-width: 490px;
+		margin: 0 auto;
 
-		&::before {
-			position: absolute;
-			z-index: -1;
-			top: 77px;
-			left: 105px;
-			width: 286px;
-			height: 180px;
-			background-image: url("../images/section-discount/balloons.svg");
-			background-size: contain;
-			background-position: bottom center;
+		@include desktop {
+			@include background-image("section-discount/bg");
+			max-width: unset;
+			margin: 0;
+			padding-top: 270px;
+			padding-left: 8.3%;
+			background-position: center;
 			background-repeat: no-repeat;
-			content: "";
+
+			&::before {
+				z-index: -1;
+				top: 77px;
+				left: 105px;
+				width: 286px;
+				height: 180px;
+				background-image: url("../images/section-discount/balloons.svg");
+				background-size: contain;
+				background-position: bottom center;
+				background-repeat: no-repeat;
+				background-color: $color-transparent;
+				content: "";
+			}
 		}
 	}
 
 	&__content {
 		max-width: 386px;
+		text-align: center;
+		margin: 0 auto;
+
+		@include desktop {
+			margin: 0;
+			text-align: left;
+		}
 	}
 
 	&__title {

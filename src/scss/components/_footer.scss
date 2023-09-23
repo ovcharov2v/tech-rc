@@ -1,28 +1,46 @@
 .footer {
 	position: relative;
 	z-index: 999;
-	margin-top: -100px;
 	font-size: 14px;
+
+	@include desktop {
+		margin-top: -100px;}
 
 	&__content-box {
 		display: flex;
+		flex-direction: column-reverse;
 		align-items: center;
-		margin: 0 -30px;
-		padding: 30px 38px;
+		padding: 25px 22px 5px;
 		background-color: $color-white;
-		border-radius: 60px;
+		text-align: center;
+
+		@include desktop {
+			flex-direction: row;
+			margin: 0 -30px;
+			padding: 30px 38px;
+			border-radius: 60px;
+			text-align: left;
+		}
 	}
 
 	&__text-box {
 		display: flex;
+		flex-direction: column;
 		margin-left: auto;
 
 		&>*:not(:first-child) {
-			margin-left: 25px;
+			@include desktop {
+				margin-left: 25px;}
+		}
+
+		@include desktop {
+			flex-direction: row;
 		}
 	}
 
 	&__text {
+		margin-bottom: 20px;
+
 		@at-root {
 			a#{&} {
 				transition: color $transition-default;
@@ -32,14 +50,23 @@
 				}
 			}
 		}
+
+		@include desktop {
+			margin-bottom: 0;
+		}
 	}
 
 	&__link {
+		margin-bottom: 20px;
 		text-decoration: underline;
 		transition: color $transition-default;
 
 		&:hover {
 			color: $color-orange;
+		}
+
+		@include desktop {
+			margin-bottom: 0;
 		}
 	}
 }
